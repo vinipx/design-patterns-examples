@@ -8,7 +8,7 @@ Each pattern will offer **concept explanation**, **examples of usage**, and **co
 
 - [Factory](https://github.com/vinipx/design-patterns-examples/tree/main/src/main/java/creational/factory)
 - Abstract Factory
-- Builder
+- [Builder](https://github.com/vinipx/design-patterns-examples/tree/main/src/main/java/creational/builder)
 - Prototype
 - Singleton
 

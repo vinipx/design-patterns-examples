@@ -6,7 +6,7 @@ Each pattern will offer **concept explanation**, **examples of usage**, and **co
 
 ### Creational Patterns
 
-- Factory 
+- [Factory](https://github.com/vinipx/design-patterns-examples/tree/main/src/main/java/creational/factory)
 - Abstract Factory
 - Builder
 - Prototype

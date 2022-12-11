@@ -12,6 +12,15 @@
 <br>java.util.EnumSet#of()
 <br>javax.xml.bind.JAXBContext#createMarshaller() and other similar methods.
 
+## Advantages
+- Factory Method Pattern allows the subclasses to choose the type of objects to create.
+- It promotes the **loose-coupling** by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
+
+## Usages  
+- When a class doesn't know what subclasses will be required to create
+- When a class wants that its subclasses specify the objects to be created.
+- When the parent classes choose the creation of objects to its subclasses.
+
 Inspired by the excellent [Refactoring Guru](https://refactoring.guru/design-patterns/factory-method/java/example#lang-features) our example will be based on UI elements.
 
 ### Example 1: Dialog screen with button - Windows/Linux?

@@ -65,6 +65,11 @@ Yes, it is possible to create multiple objects using the same factory method. Th
 
 Yes, there are some drawbacks to using the Factory design pattern. One such drawback is that it can lead to code that is difficult to maintain and understand. This is because the Factory pattern can often lead to a large amount of code duplication. Additionally, the Factory pattern can sometimes be an overkill solution to a problem that could be solved more simply.
 
+### Q8: What is the difference between Factory and Builder design patterns?
+
+Think of the `factory` as a way to build polymorphic types - unknown types or simply the ones you do not care.
+<br>While the `builder` pattern is more about building complex objects, but not necessary polymorphic ones.
+
 
 
 

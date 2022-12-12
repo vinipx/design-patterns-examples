@@ -101,8 +101,6 @@ Singleton Pattern helps in providing the best ways for creating an object. It is
 
 Eager Initialization is used as an instance in Singleton Class that is created on class loading and is the easiest method for creating singleton class.
 ```java 
-package com.codeusingjava.singleton;
-
 public class EagerinitializedSingleton {
    
     //private constructor for avoiding client applications for using constructor
@@ -118,8 +116,6 @@ public class EagerinitializedSingleton {
 
 Lazy Initialization is a method used for implementing singleton pattern, that creates instances in the Global Access Method.For creating a singleton class we can use the following command:
 ```java 
-package com.codeusingjava.singleton;
-
 public class LazyinitializedSingleton {
 
     private static LazyinitializedSingleton instance;

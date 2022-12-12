@@ -10,7 +10,7 @@ Each pattern will offer **concept explanation**, **examples of usage**, and **co
 - Abstract Factory
 - [Builder](https://github.com/vinipx/design-patterns-examples/tree/main/src/main/java/creational/builder)
 - Prototype
-- Singleton
+- [Singleton](https://github.com/vinipx/design-patterns-examples/blob/main/src/main/java/creational/singleton)
 
 ### Structural Patterns
 

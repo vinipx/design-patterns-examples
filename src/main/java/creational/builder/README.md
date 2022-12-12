@@ -10,14 +10,21 @@
 <br>javax.swing.GroupLayout.Group#addComponent()
 <br>All implementations java.lang.Appendable
 
+## Definition
+
+> Builder pattern aims to "separate the construction of a complex object from its representation so that the same construction" process can create multiple different representations."
+
 ### Advantages
-- It provides clear separation between the construction and representation of an object.
-- It provides better control over construction process.
+- Lines of code increases with builder usage, but pays off in terms of design flexibility and more readable code.
+- helps to create immutable classes with a large set of state attributes.
+- Instance is always instantiated in a complete state.
 - It supports to change the internal representation of objects.
 
 ### Usages
 - Builder isolates the product’s internal representation and the steps for the product’s construction. 
 - Use the Builder pattern to get rid of having a Product with multiple constructors with a diverse number of parameters each
+
+> **Curiosity**! Lombok [@Builder](https://howtodoinjava.com/lombok/lombok-builder-annotation/) annotation is a useful technique to implement the pattern
 
 ## Interview Questions
 

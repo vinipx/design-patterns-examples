@@ -1,6 +1,6 @@
-# Singleton
+# Prototype
 
-### "Singleton pattern restricts the instantiation of a class and ensures that only one instance of the class exists in the Java Virtual Machine."
+### "The Prototype pattern is generally used when we have an instance of the class (prototype) and we'd like to create new objects by just copying the prototype."
 
 #### Examples present in Java libraries: 
 
@@ -11,10 +11,11 @@
 
 ## Definition
 
-To implement a singleton pattern, we have different approaches, but all of them have the following common concepts.
-- Private constructor to restrict instantiation of the class from other classes.
-- Private static variable of the same class that is the only instance of the class.
-- Public static method that returns the instance of the class, this is the global access point for the outer world to get the instance of the singleton class.
+The Prototype pattern is generally used when we have an instance of the class (prototype) and we'd like to create new objects by just copying the prototype.
+In some games, we want trees or buildings in the background. We may realize that we don't have to create new trees or buildings and render them on the screen every time the character moves
+So, we create an instance of the tree first. Then we can create as many trees as we want from this instance (prototype) and update their positions. We may also choose to change the color of the trees for a new level in the game.
+
+The Prototype pattern is quite similar. Instead of creating new objects, we just have to clone the prototypical instance.
 
 There are different approaches to singleton pattern implementation:
 

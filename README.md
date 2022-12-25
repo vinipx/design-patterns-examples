@@ -1,8 +1,15 @@
 # Design Patterns - Explained by Examples Series
 
-This repository is intended to be used as a reference for **mentoring programs** and a base for studying via examples.
+This repository is intended to be used as a reference for **alavanQA** Youtube series.
 
-Each pattern will offer **concept explanation**, **examples of usage**, and **common interview questions** to help evaluate the learning.
+Each section offers will be offering:
+1. Concept & Definition
+2. PROS and CONS
+3. Use Cases
+4. Coding Example
+5. Interview Questions
+
+Please, get ready & let's go!
 
 ### Creational Patterns
 

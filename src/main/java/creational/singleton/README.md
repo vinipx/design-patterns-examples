@@ -4,9 +4,8 @@
 
 #### Examples present in Java libraries: 
 
->java.lang.StringBuilder#append() (unsynchronized)
+>java.lang.System#getSecurityManager()
 <br>Java.lang.Runtime with getRuntime() method
-<br>Java.awt.Toolkit with getDefaultToolkit()
 <br>Java.awt.Desktop with getDesktop()
 
 ## Definition
@@ -61,7 +60,8 @@ public class StaticBlockSingleton {
 Both eager initialization and static block initialization create the instance even before it’s being used and that is not the best practice to use.
 
 ### Lazy Initialization
-Lazy initialization method to implement the singleton pattern creates the instance in the global access method. Here is the sample code for creating the singleton class with this approach:
+The instance could be initialized only when the singleton class is used for the first time.
+Doing so creates the instance of the singleton class in the JVM during the execution of the method.
 ```java
 public class LazyInitializedSingleton {
 
@@ -80,11 +80,17 @@ public class LazyInitializedSingleton {
 The preceding implementation works fine in the case of the single-threaded environment, but when it comes to multi-threaded systems, it can cause issues if multiple threads are inside the if condition at the same time. It will destroy the singleton pattern and both threads will get different instances of the singleton class. In the next section, we will see different ways to create a thread-safe singleton class.
 
 ### Advantages
-- **Global Access Point**: A Singleton is a global object in disguise, but it provides a global access point. As a global, a Singleton can be accessed from anywhere in the program, but it cannot be modified from anywhere. It can only be modified from within the Singleton. It is, therefore, a means to protect globals.
-- **Unique Entity Model**: It makes it easier to reason about your program when you model entities of reality. In reality, we often have Singletons such as registration offices, global timers, or factories for unique IDs. Consequentially, you achieve a very nice match between the program abstraction and the reality. This correspondence helps you and your client to better understand the program.
+- Provide global access point from anywhere in the program - it can't be modified though
+- Control access to shared resources
+- Limits object initialization
 
 ### Disadvantages
-- **Static Initialization Order Fiasco**:  you have no guarantee in which order statics in different translation units are initialized and destructed.
+- Increases coupling - impacts scalability and testing
+- Requires static memory allocation
+- Hidden dependencies in code
+- Violates the single responsibility principle
+- Violates the open/close principle
+- Can be directly affected by multithreaded solutions
 
 ### Usages
 - Singleton design pattern is used in core Java classes also (i.e. java.lang.Runtime, java.awt.Desktop).
@@ -95,11 +101,22 @@ The preceding implementation works fine in the case of the single-threaded envir
 
 ### Q1: What is Singleton Pattern?
 
-Singleton Pattern helps in providing the best ways for creating an object. It is also responsible for creating objects while single objects in making sure if only one object is been created. This class helps by providing a way for accessing the objects that can be accessed without the need for instantiating the object of the class.
+Singleton Pattern helps in providing the best ways for creating an object. 
+It is also responsible for creating objects while single objects in making 
+sure if only one object is been created. 
+
+This class helps by providing a way for accessing the objects that can be 
+accessed without the need for instantiating the object of the class.
 
 ### Q2: What is Eager Initialization?
 
-Eager Initialization is used as an instance in Singleton Class that is created on class loading and is the easiest method for creating singleton class.
+Eager initialization is the simplest method of creating a singleton class.
+The object of a class is created when it is loaded to the memory by JVM.
+It is done by assigning the reference of an instance directly.
+
+It can be used when program will always use instance of this class
+or the cost of creating the instance is not too large in terms of
+resources and time.
 ```java 
 public class EagerinitializedSingleton {
    
@@ -114,7 +131,9 @@ public class EagerinitializedSingleton {
 
 ### Q3: What is Lazy Initialization?
 
-Lazy Initialization is a method used for implementing singleton pattern, that creates instances in the Global Access Method.For creating a singleton class we can use the following command:
+The instance could be initialized only when the singleton class is used for the first time.
+<br>Doing so creates the instance of the singleton class in the JVM during the execution of the method.
+
 ```java 
 public class LazyinitializedSingleton {
 
@@ -133,11 +152,25 @@ public class LazyinitializedSingleton {
 
 ### Q4: Why Singleton is Anti pattern
 
-With more and more classes calling getInstance() the code gets more and more tightly coupled, monolithic, not testable and hard to change and hard to reuse because of not configurable, hidden dependencies. Also, there would be no need for this clumsy double-checked locking if you call getInstance less often (i.e. once).
+With more and more classes calling getInstance() the code gets 
+more and more tightly coupled, monolithic, not testable and 
+hard to change and reuse because of hidden dependencies.
+<br>Also, there would be no need for this clumsy double-checked 
+locking if you call getInstance less often (i.e. once).
 
-### Q5: When should you not use this pattern?
+### Q5: Why we should avoid the Singleton?
 
-The Builder design pattern is not appropriate in every situation. One common pitfall is when the construction process is relatively simple and not worth abstracting into a separate Builder object. In addition, this pattern can lead to code that is difficult to read and maintain if it is not used carefully.
+#### Increased Coupling:
+- Couples all callers to the concrete implementation.
+- Harder to test since you cannot isolate/mock it.
+- In order to change the behavior of the singleton you have to
+  check and change all the callers since they all share a global variable
+
+#### Open/Closed Principle:
+- In order to change the behavior you need to change the class.
+  (changing code is way riskier than adding new code
+  Undesired side effects (bugs) might be introduced in various
+  different areas of the code.
 
 ### Q6: What are the problems in implementing this patterns using static Class ?
 
@@ -147,7 +180,9 @@ a. We cannot achieve runtime Polymorphism or late binding as Java doesn't allow 
 
 ### Q7: What’s the best way to create a thread-safe Singleton pattern in Java?
 
-The best way to create a thread-safe Singleton pattern in Java is to use the double-checked locking method. This method uses a synchronized block to ensure that only one instance of the Singleton is created.
+The best way to create a thread-safe Singleton pattern in Java is to use 
+the double-checked locking method. 
+<br>This method uses a synchronized block to ensure that only one instance of the Singleton is created.
 
 ### References
 
